@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Jueves</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #FFD1FF, #A0E0F9);
+            color: #333;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column; /* Flex column for small screens */
+        }
+
+        /* Círculos en movimiento */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: moveCircle 15s infinite ease-in-out;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .circle1 { background-color: rgba(255, 69, 158, 0.6); width: 20vw; height: 20vw; top: -10vh; left: 10%; }
+        .circle2 { background-color: rgba(90, 172, 255, 0.6); width: 25vw; height: 25vw; top: 20%; left: 60%; }
+        .circle3 { background-color: rgba(255, 105, 180, 0.6); width: 15vw; height: 15vw; top: 60%; left: 80%; }
+        .circle4 { background-color: rgba(100, 183, 255, 0.6); width: 22vw; height: 22vw; top: 70%; left: 5%; }
+
+        @keyframes moveCircle {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, -50px); }
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            padding: 5%;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            margin: 10px 0;
+            color: #FF69B4;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin: 15px 0;
+            color: #555;
+        }
+
+        button {
+            background-color: #FFB6C1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #FF8C9A;
+        }
+
+        .meme {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+
+        .back-button {
+            background-color: #A0E0F9;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 30px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+            background-color: #7DB9D8;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1em; }
+            button, .back-button { padding: 10px 20px; font-size: 0.9em; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 10%; }
+            h1 { font-size: 1.8em; }
+            p { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
+    <div class="circle circle3"></div>
+    <div class="circle circle4"></div>
+
+    <div id="page1" class="container">
+        <h1>¡Bienvenida Enana!</h1>
+        <button id="go-button" onclick="playAudioAndShowPage2()">¡Haz clic aquí!</button>
+        <audio id="audio" src="FelizJ.mp3"></audio>
+    </div>
+
+    <div id="page2" class="container" style="display: none;">
+        <h1>🎉 ¡Feliz jueves! 🎉</h1>
+        <img src="FelizJueves.gif" alt="Meme Feliz Jueves" class="meme">
+        <p><h3>¡Feliz jueves, enana! 🌟 Hoy es un día perfecto para sonreír, darlo todo y recordar que siempre hay algo bueno esperándote. ¡Ánimo, que el fin de semana ya se asoma! Brilla como siempre y haz que este jueves sea genial. ¡¡¡TU PUEDES!!! 🎉</h3></p>
+        <button class="back-button" onclick="showPage1()">Volver</button>
+    </div>
+
+    <script>
+        function playAudioAndShowPage2() {
+            const audio = document.getElementById("audio");
+            audio.play();
+            showPage2();
+        }
+
+        function showPage2() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "block";
+        }
+
+        function showPage1() {
+            document.getElementById("page2").style.display = "none";
+            document.getElementById("page1").style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
